@@ -40,9 +40,6 @@ const ResetPwd = Loadable(lazy(() => import("./pages/auth/ResetPwd")));
  //employee Dashboard
  const EmployeeDashboard = Loadable(lazy(() => import("./pages/employee/dashboard/Dashboard")));
  const UserDashboard = Loadable(lazy(() => import("./pages/users/dashboard/Dashboard")));
-const AddCompany = Loadable(
-  lazy(() => import("./pages/admin/company/AddCompany"))
-);
 const Users = Loadable(lazy(() => import("./pages/admin/users/Users")));
 const AddUser = Loadable(lazy(() => import("./pages/admin/users/AddUser")));
 
@@ -149,10 +146,6 @@ const routes = [
         path:"",
         element:<AdminDashboard/>
 
-      },
-      {
-        path: "add-company",
-        element: <AddCompany />,
       },
       {
         path: "users",

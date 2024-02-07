@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an AxiosInstance of Axios with default configuration
 const AxiosInstance = axios.create({
-  baseURL: 'https://capston-2vdh.onrender.com/api', // Set the base URL for all requests // Set a timeout for requests (in milliseconds)
+  baseURL: 'http://localhost:4050/api', // Set the base URL for all requests // Set a timeout for requests (in milliseconds)
   headers: {
     'Content-Type': 'application/json', // Set default headers for all requests
     // You can add other headers as needed

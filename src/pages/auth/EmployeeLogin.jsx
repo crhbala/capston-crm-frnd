@@ -75,6 +75,9 @@ const EmployeeLogin = () => {
         Login
       </Button>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+        <Link to="/signup" style={{ textDecoration: "underline" }}>
+          No account created? then Signup
+        </Link>
         <Link to="/forget-password" style={{ textDecoration: "underline" }}>
           Forgot Password?
         </Link>

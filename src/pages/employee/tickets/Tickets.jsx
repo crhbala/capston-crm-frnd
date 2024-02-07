@@ -105,12 +105,16 @@ const Tickets = () => {
   ];
   return (
     <React.Fragment>
+       {/* <Link to="add-tickets">
+        <Button variant="contained" sx={{ marginLeft: "auto" }}>
+          <AddIcon /> Add Tickets
+        </Button>
+      </Link>  */}
       {loading ? (
         <p>Loading...</p>
       ) : (
         <CustomTable columns={columns} data={tickets} title="Tickets" />
       )}
-      <Button onClick={()=>{navigate("/employee-dashboard");}}>Back</Button>
     </React.Fragment>
   );
 };

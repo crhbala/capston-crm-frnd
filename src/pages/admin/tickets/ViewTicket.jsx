@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   Paper,
   Typography,
@@ -30,10 +30,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const ViewTicket = () => {
-  const navigate = useNavigate()
   const { id } = useParams();
   const [ticket, setTicket] = useState({});
-  console.log(ticket);
   const [employee, setEmployee] = useState([]);
   const [assignee, setAssignee] = useState("");
   const [status, setStatus] = useState("");
@@ -197,9 +195,10 @@ const ViewTicket = () => {
                 <Avatar>{message.senderName.charAt(0)}</Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={message.senderName}
+                primary={message.senderName} 
                 secondary={message.message}
               />
+            
             </ListItem>
           ))}
         </List>
@@ -240,13 +239,6 @@ const ViewTicket = () => {
           type="button"
         >
           Update Ticket
-        </Button>
-        <Button
-          onClick={() => {
-            navigate("/admin-dashboard/tickets");
-          }}
-        >
-          Back
         </Button>
       </Paper>
     </div>

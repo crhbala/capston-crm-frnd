@@ -34,7 +34,7 @@ const HomeLayout = ({ children }) => {
             variant="h6"
             sx={{ flexGrow: 1, fontWeight: 800}}
           >
-            CHRIS BALA CRM
+            CRISH BALA CRM
           </Typography>
         
           <Box sx={{ display: "flex" }}>

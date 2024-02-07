@@ -83,12 +83,6 @@ Ticket Closure and Final Communication:
 
 Once the complaint is resolved, the employee updates the ticket status.
 
-********Under Development***********
-Todo List Functionality
-Contact list CRUD
-Chart data Functionality
-and some futures are pending
-
 User Login page
 username: chrisbala32@gmail.com
 password: chrisbala

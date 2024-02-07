@@ -17,12 +17,14 @@ const Signup = () => {
       .email("Enter valid email!")
       .required("Email is required !"),
     password: Yup.string().required("Password is required !"),
+   
   });
 
   const initialValues = {
     name: "",
     email: "",
-    password: ""
+    password: "",
+   
   };
   const { errors, values, handleChange, handleSubmit, touched } = useFormik({
     initialValues,
@@ -86,7 +88,7 @@ const Signup = () => {
         fullWidth
         className="mt-3"
       >
-        Fetch data
+        Sign-Up
       </LoadingButton>
       {/* <Button
         variant="contained"

@@ -6,7 +6,6 @@ import { error, success } from "../../theme/themeColors";
 
 const EmailVerify = () => {
   const { id } = useParams();
-  
 
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("200");
@@ -14,17 +13,14 @@ const EmailVerify = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    //changessssss
     apiAuth.put({}, `verification/${id}`).then((res) => {
-      console.log(res, "responce");
-      console.log(id);
+         console.log(res,"responce");
       if (res.status === "200") {
         setMessage("Verified Sucessfully");
         setTimeout(() => {
           navigate("/");
         }, 3000);
       } else {
-        console.log(res.status);
         setStatus(res.status);
         setMessage("Verification Failed");
       }

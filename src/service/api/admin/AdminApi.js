@@ -3,12 +3,10 @@ import { handleError, handleResponse } from "../../axios/response"
 import AxiosInstance from "../../axios/SetupAxios"
 
 export const AdminApi={
-  login: async (data) => {
-    console.log(data);
+    login: async(data)=>{
          try
          {
-           const response = await AxiosInstance.post('/admin/login', data);
-           console.log(response);
+          const response=await AxiosInstance.post('/admin/login',data);
           return handleResponse(response)
          }catch(error)
          {  
@@ -32,6 +30,7 @@ export const AdminApi={
             return handleError(error);
           }
     },
+  
     showAllEmployee:async()=>{
  
       try
@@ -43,6 +42,15 @@ export const AdminApi={
         return handleError(error);
       }
     },
+    updateUser: async (userId, data) => {
+      try {
+        const response = await AxiosInstance.put(`/user/${userId}`, data);
+        return handleResponse(response);
+      } catch (error) {
+        return handleError(error);
+      }
+    },
+  
     showAllUser:async()=>{
       try
       {
@@ -53,7 +61,15 @@ export const AdminApi={
         return handleError(error);
       }
     },
-
+    getUserById: async (userId) => {
+      try {
+        const response = await AxiosInstance.get(`/admindashboard/user/${userId}`);
+        return handleResponse(response);
+      } catch (error) {
+        return handleError(error);
+      }
+    },
+   
     getAllTickets:async()=>{
       try
       {

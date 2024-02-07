@@ -5,9 +5,9 @@ import { toast } from "react-hot-toast";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { CustomAuthInput } from "../../components/CustomInputs";
-import { AdminApi } from "../../service/api/admin/AdminApi";
+import { ManagerApi } from "../../service/api/manager/ManagerApi";
 
-const AdminLogin = () => {
+const ManagerLogin = () => {
   const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
@@ -30,12 +30,12 @@ const AdminLogin = () => {
   });
   const loginUser = (user) => {
     
-     AdminApi.login(user).then((res) => {
+     ManagerApi.login(user).then((res) => {
         console.log("here",res);
       if (res.status === 200) {
         toast.success("user Login Successfully")
         localStorage.setItem("CRM-user",JSON.stringify(res.data));
-        navigate("/admin-dashboard");
+        navigate("/manager-dashboard");
       } else if (res.status === "401") {
         localStorage.setItem("CRM-email", user.email);
         navigate("/verification?status=not-verified");
@@ -48,7 +48,7 @@ const AdminLogin = () => {
   return (
     <>
       <Typography component="h1" variant="h4">
-       Admin Log In
+       Manager Log In
       </Typography>
       <CustomAuthInput
         name="email"
@@ -82,4 +82,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default ManagerLogin;

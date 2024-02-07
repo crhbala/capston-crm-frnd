@@ -2,12 +2,14 @@
 
 import axios from "axios";
 import { handleResponse, handleError } from "./response";
+// import { CYCLIC_BASE_URL } from "../api";
 import { LOCALHOST_URL } from "../api";
 
 // Define your api url from any source.
 // Pulling from your .env file when on the server or from localhost when locally
 const BASE_URL = LOCALHOST_URL;
 
+// const BASE_URL = CYCLIC_BASE_URL;
 
 const token = localStorage.getItem("CRM-token");
 
@@ -176,7 +178,6 @@ const put = async (resource, model, additionalParams, isAuthorized = false) => {
         headers: headers,
       });
     } else {
-      console.log(resource);
       response = await axios.put(
         `${BASE_URL}/${resource}/${additionalParams}`,
         model,

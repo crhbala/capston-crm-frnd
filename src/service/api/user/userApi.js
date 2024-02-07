@@ -24,15 +24,44 @@ export const userApi={
             handleError(error)
         }
     },
-    //new added
-    getDashBoardData:async(id)=>{
-    try
-    {
-     const response=await AxiosInstance.get(`/userdashboard/${id}`);
-     return handleResponse(response)
-    }catch(error)
-    {  
-        handleError(error)
-    }
-  }
+    getDashBoardData:async(userId)=>{
+        try
+        {
+         const response=await AxiosInstance.get(`/users/ticket/${userId}`)
+         return handleResponse(response)
+        }catch(error)
+        {  
+            handleError(error)
+        }
+      },
+      getTicketById:async(id)=>{
+        try
+        {
+         const response=await AxiosInstance.get(`/tickets/view/${id}`);
+         return handleResponse(response)
+        }catch(error)
+        {  
+            handleError(error)
+        }
+    },
+    updateTicket:async(data,id)=>{
+        try
+        {
+         const response=await AxiosInstance.put(`/tickets/employee/${id}`,data);
+         return handleResponse(response)
+        }catch(error)
+        {  
+            handleError(error)
+        }
+       },
+       sendTicketMessage:async(id,values)=>{
+        try
+        {
+         const response=await AxiosInstance.put(`/tickets/${id}/message`,values);
+         return handleResponse(response)
+        }catch(error)
+        {  
+            handleError(error)
+        }
+       }
 }

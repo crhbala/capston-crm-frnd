@@ -101,26 +101,16 @@ const Tickets = () => {
   ];
   return (
     <React.Fragment>
-      {/* <Link to="add-tickets">
+       <Link to="add-tickets">
         <Button variant="contained" sx={{ marginLeft: "auto" }}>
           <AddIcon /> Add Tickets
         </Button>
-      </Link>  */}
+      </Link> 
       {loading ? (
         <p>Loading...</p>
       ) : (
         <CustomTable columns={columns} data={tickets} title="Tickets" />
       )}
-      <Button
-        sx={{
-          marginTop: 2,
-        }}
-        onClick={() => {
-          navigate("/admin-dashboard");
-        }}
-      >
-        Back
-      </Button>
     </React.Fragment>
   );
 };

@@ -6,7 +6,6 @@ export const EmployeeApi={
     login: async(data)=>{
          try
          {
-             console.log(data);
           const response=await AxiosInstance.post('/employee/login',data);
           return handleResponse(response)
          }catch(error)
@@ -63,5 +62,15 @@ export const EmployeeApi={
     {  
         handleError(error)
     }
-  }
+  },
+  sendTicketMessage:async(id,values)=>{
+    try
+    {
+     const response=await AxiosInstance.put(`/tickets/${id}/message`,values);
+     return handleResponse(response)
+    }catch(error)
+    {  
+        handleError(error)
+    }
+   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
-// import Moon from "../../assets/moon.png";
-// import Telescope from "../../assets/telescope.png";
-// import RocketLauncher from "../../assets/rocket-launcher.png";
+import Moon from "../../assets/moon.png";
+import Telescope from "../../assets/telescope.png";
+import RocketLauncher from "../../assets/rocket-launcher.png";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -17,7 +17,7 @@ const ErrorPage = () => {
         <Grid item xs={12} sm={6} md={6}>
           <Box sx={{ position: "relative" }}>
             <img
-              // src={Moon}
+              src={Moon}
               alt=""
               style={{
                 height: 300,
@@ -29,7 +29,7 @@ const ErrorPage = () => {
               }}
             />
             <img
-              // src={RocketLauncher}
+              src={RocketLauncher}
               alt=""
               style={{ maxHeight: "100vh", width: "auto", maxWidth: "100%" }}
             />
@@ -76,7 +76,7 @@ const ErrorPage = () => {
 
           {matches && (
             <img
-              // src={Telescope}
+              src={Telescope}
               alt=""
               style={{
                 height: 300,

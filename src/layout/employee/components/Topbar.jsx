@@ -147,10 +147,10 @@ export const menuContents = [
     link: "/employee-dashboard/tickets",
     icon: <ConfirmationNumberOutlined />,
   },
-  {
-    title: "Todos",
-    link: "/employee-dashboard/todos",
-    icon: <FactCheckOutlined />,
-  },
+  // {
+  //   title: "Todos",
+  //   link: "/employee-dashboard/todos",
+  //   icon: <FactCheckOutlined />,
+  // },
 
 ];

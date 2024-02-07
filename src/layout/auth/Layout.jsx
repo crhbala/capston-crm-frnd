@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { ThemeContext } from "../../context/ThemeContext";
 import CustomToggle from "../../components/CustomToggle";
-// import TopImg from "../../assets/card-primary copy.png";
+import TopImg from "../../assets/card-primary copy.png";
 import useGetuserData from "../../Hooks/useGetuserData";
 import { useNavigate } from "react-router-dom";
 
@@ -36,10 +36,13 @@ const AuthLayout = ({ children }) => {
     <React.Fragment>
       <AppBar component="nav">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 800 }}>
+          <Typography
+            variant="h6"
+            sx={{ flexGrow: 1, fontWeight: 800 }}
+          >
             CRISH BALA CRM
           </Typography>
-
+         
           <Box sx={{ display: "flex" }}>
             <CustomToggle />
           </Box>
@@ -54,8 +57,7 @@ const AuthLayout = ({ children }) => {
         }}
       >
         <Card sx={{ width: matches ? 425 : "90%" }}>
-          {/* <img src={TopImg} alt="" style={{ height: 200 }} /> */}
-
+          <img src={TopImg} alt="" style={{ height: 200 }} />
           <CardContent
             sx={{ display: "flex", flexDirection: "column", gap: 1, pt: 0 }}
           >
@@ -63,6 +65,7 @@ const AuthLayout = ({ children }) => {
           </CardContent>
         </Card>
       </Container>
+     
     </React.Fragment>
   );
 };

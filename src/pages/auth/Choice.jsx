@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import WorkIcon from '@mui/icons-material/Work';
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { useNavigate } from 'react-router-dom';
 

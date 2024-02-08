@@ -24,7 +24,6 @@ const Home = Loadable(lazy(() => import("./pages/home/Homepage")));
 const Signup = Loadable(lazy(() => import("./pages/auth/Signup")));
 const Login = Loadable(lazy(() => import("./pages/auth/Login")));
 const AdminLogin = Loadable(lazy(() => import("./pages/auth/AdminLogin")));
-const ManagerLogin = Loadable(lazy(() => import("./pages/auth/ManagerLogin")));
 const EmployeeLogin = Loadable(lazy(() => import("./pages/auth/EmployeeLogin")));
 const Verification = Loadable(lazy(() => import("./pages/auth/Verification")));
 const EmailVerify = Loadable(lazy(() => import("./pages/auth/EmailVerify")));
@@ -117,10 +116,6 @@ const routes = [
        path:"admin-login",
        element:<AdminLogin/>
       },
-      {
-        path:"manager-login",
-        element:<ManagerLogin/>
-       },
        {
         path:"employee-login",
         element:<EmployeeLogin/>

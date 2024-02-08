@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Paper,
   Typography,
@@ -32,6 +32,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const ViewTicket = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [ticket, setTicket] = useState({});
   const [status, setStatus] = useState("");
@@ -42,19 +43,20 @@ const ViewTicket = () => {
     message: "",
     senderId: user.user._id,
     senderName: user.user.name,
-    role:"user"
+    role: "user",
   };
 
-  const { errors, values, handleChange, handleSubmit, touched,resetForm } = useFormik({
-    initialValues,
-    validationSchema,
-    onSubmit: (values) => {
-      //setIsLoading(false);
+  const { errors, values, handleChange, handleSubmit, touched, resetForm } =
+    useFormik({
+      initialValues,
+      validationSchema,
+      onSubmit: (values) => {
+        //setIsLoading(false);
 
-      console.log(values, user, "message calue");
-      handleSendMessage(values);
-    },
-  });
+        console.log(values, user, "message calue");
+        handleSendMessage(values);
+      },
+    });
 
   const fetchTicket = async () => {
     try {
@@ -91,7 +93,7 @@ const ViewTicket = () => {
   const handleSendMessage = async (values) => {
     try {
       // Your API call to send a new message
-     const response= await userApi.sendTicketMessage(id, values);
+      const response = await userApi.sendTicketMessage(id, values);
       toast.success(response.data.message);
       setTicket(response.data.ticket);
       setConversation(response.data.ticket.conversation);
@@ -143,7 +145,7 @@ const ViewTicket = () => {
           {/* Add more details here based on your ticket structure */}
         </Grid>
       </Paper>
-      
+
       <Paper elevation={3} style={{ padding: 20, marginBottom: 20 }}>
         <Typography variant="h6" gutterBottom>
           Conversation
@@ -155,10 +157,9 @@ const ViewTicket = () => {
                 <Avatar>{message.senderName.charAt(0)}</Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={message.senderName} 
+                primary={message.senderName}
                 secondary={message.message}
               />
-            
             </ListItem>
           ))}
         </List>
@@ -199,6 +200,13 @@ const ViewTicket = () => {
           type="button"
         >
           Update Ticket
+        </Button>
+        <Button
+          onClick={() => {
+            navigate("/user-dashboard");
+          }}
+        >
+          Back
         </Button>
       </Paper>
     </div>

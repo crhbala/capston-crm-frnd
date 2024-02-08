@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import {
   CustomMultipleCheckBoxField,
@@ -14,7 +14,7 @@ import { AdminApi } from "../../../service/api/admin/AdminApi";
 import { useNavigate } from "react-router-dom";
 
 const AddUser = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -45,12 +45,12 @@ const AddUser = () => {
 
   const inviteUser = (values) => {
     // console.log(values);  apiUsers.post({ ...values}, "", true)
-    AdminApi.addUser({...values},values.role,"register").then((res) => {
-      console.log(res,"responcw");
+    AdminApi.addUser({ ...values }, values.role, "register").then((res) => {
+      console.log(res, "responcw");
       if (res.status === 200) {
         toast.success("User has been invited");
         setIsLoading(false);
-        navigate("/admin-dashboard/employee")
+        navigate("/admin-dashboard/employee");
       } else {
         // console.log(res);
         toast.error(res);
@@ -124,16 +124,26 @@ const AddUser = () => {
               />
             </Box>
             <LoadingButton
-                loading={isLoading}
-                loadingIndicator="Loading…"
-                variant="contained"
-                onClick={handleSubmit}
-                sx={{
-                  marginTop:2,
-                }}
-              >
-                Invite User
-              </LoadingButton>
+              loading={isLoading}
+              loadingIndicator="Loading…"
+              variant="contained"
+              onClick={handleSubmit}
+              sx={{
+                marginTop: 2,
+              }}
+            >
+              Invite User
+            </LoadingButton>
+            <Button
+              sx={{
+                marginTop: 2,
+              }}
+              onClick={() => {
+                navigate("/admin-dashboard/employee");
+              }}
+            >
+              Back
+            </Button>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <Box
@@ -190,7 +200,7 @@ const AddUser = () => {
                   />
                 </Grid>
               </Grid> */}
-             
+
               {/* <Button onClick={handleSubmit} variant="contained">
                 Invite User
               </Button> */}

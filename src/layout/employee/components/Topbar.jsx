@@ -91,7 +91,7 @@ const Topbar = ({ handleDrawerToggle }) => {
         </IconButton>
         <Link to='/employee-dashboard'>
         <Typography variant="h6" noWrap component="div">
-          Crish BALA CRM
+          CHRIS BALA CRM
         </Typography>
         </Link>
         <Box sx={{ flexGrow: 1 }} />

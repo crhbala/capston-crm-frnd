@@ -10,9 +10,9 @@ import { convertDateToDateWithoutTime } from "../../../utils/calendarHelpers";
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  const user=useGetuserData(); 
-  const navigate=useNavigate();
+
+  const user = useGetuserData();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTickets = async () => {
@@ -20,23 +20,23 @@ const Tickets = () => {
         // Check if user.id is available before making the API call
         if (user.user && user.user.id) {
           const response = await userApi.getTickets(user.user.id);
-          console.log(response,"response");
+          console.log(response, "response");
           setTickets(response.data.message);
           setLoading(false);
         } else {
           // Handle the case when user.id is not available
-          console.error('User ID is not available.');
+          console.error("User ID is not available.");
           setLoading(false);
         }
       } catch (error) {
-        console.error('Error fetching tickets:', error);
+        console.error("Error fetching tickets:", error);
         setLoading(false);
       }
     };
-  
+
     fetchTickets();
   }, []); // The dependency array now includes user, so it runs whenever user changes
-  
+
   // const [tickets] = useState([
   //   {
   //     createdAt: "2022-02-28T13:59:06.873Z",
@@ -173,28 +173,37 @@ const Tickets = () => {
             variant="contained"
             size="small"
             onClick={() => {
-              navigate(`/user-dashboard/tickets/${tableMeta}`)
+              navigate(`/user-dashboard/tickets/${tableMeta}`);
             }}
           >
             View
           </Button>
-         
         ),
       },
     },
   ];
   return (
     <React.Fragment>
-       <Link to="add-tickets">
+      <Link to="add-tickets">
         <Button variant="contained" sx={{ marginLeft: "auto" }}>
           <AddIcon /> Add Tickets
         </Button>
-      </Link> 
+      </Link>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <CustomTable columns={columns} data={tickets} title="Tickets" />
       )}
+      <Button
+        sx={{
+          marginTop: 2,
+        }}
+        onClick={() => {
+          navigate("/user-dashboard");
+        }}
+      >
+        Back
+      </Button>
     </React.Fragment>
   );
 };

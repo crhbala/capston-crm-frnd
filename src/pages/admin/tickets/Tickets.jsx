@@ -11,43 +11,40 @@ import { AdminApi } from "../../../service/api/admin/AdminApi";
 const Tickets = () => {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate=useNavigate();
-  
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-       
-          const response = await AdminApi.getAllTickets();
-          const updatedTickets = response.data.message.map((ticket) => {
-            const mergedTicket = { ...ticket };
-            
-            if (ticket.client) {
-              // Merge client properties without overriding ticket properties
-              Object.keys(ticket.client).forEach((key) => {
-                if (!mergedTicket[key]) {
-                  mergedTicket[key] = ticket.client[key];
-                }
-              });
-            }
-          
-            return mergedTicket;
-          });
-        console.log(updatedTickets,"updated ticket");
-          setTickets(updatedTickets);
-          setLoading(false);
+        const response = await AdminApi.getAllTickets();
+        const updatedTickets = response.data.message.map((ticket) => {
+          const mergedTicket = { ...ticket };
 
+          if (ticket.client) {
+            // Merge client properties without overriding ticket properties
+            Object.keys(ticket.client).forEach((key) => {
+              if (!mergedTicket[key]) {
+                mergedTicket[key] = ticket.client[key];
+              }
+            });
+          }
+
+          return mergedTicket;
+        });
+        console.log(updatedTickets, "updated ticket");
+        setTickets(updatedTickets);
+        setLoading(false);
       } catch (error) {
-        console.error('Error fetching tickets:', error);
+        console.error("Error fetching tickets:", error);
         setLoading(false);
       }
     };
-  
+
     fetchTickets();
-  }, []); 
-  
-  
+  }, []);
+
   // The dependency array now includes user, so it runs whenever user changes
- 
+
   const columns = [
     {
       label: "Customer-Name",
@@ -89,28 +86,32 @@ const Tickets = () => {
             variant="contained"
             size="small"
             onClick={() => {
-              navigate(`/admin-dashboard/tickets/${tableMeta}`)
+              navigate(`/admin-dashboard/tickets/${tableMeta}`);
             }}
           >
             View
           </Button>
-         
         ),
       },
     },
   ];
   return (
     <React.Fragment>
-       <Link to="add-tickets">
-        <Button variant="contained" sx={{ marginLeft: "auto" }}>
-          <AddIcon /> Add Tickets
-        </Button>
-      </Link> 
       {loading ? (
         <p>Loading...</p>
       ) : (
         <CustomTable columns={columns} data={tickets} title="Tickets" />
       )}
+      <Button
+        sx={{
+          marginTop: 2,
+        }}
+        onClick={() => {
+          navigate("/admin-dashboard");
+        }}
+      >
+        Back
+      </Button>
     </React.Fragment>
   );
 };

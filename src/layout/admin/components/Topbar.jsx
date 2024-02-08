@@ -96,7 +96,7 @@ const Topbar = ({ handleDrawerToggle }) => {
       
        <Link to="/admin-dashboard">
        <Typography variant="h6" noWrap component="div">
-          Crish BALA CRM
+          CHRIS BALA CRM
         </Typography>
        </Link>
        

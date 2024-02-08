@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import CustomTable from "../../../components/CustomTable";
 import { convertDateToDateWithoutTime } from "../../../utils/calendarHelpers";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Add as AddIcon } from "@mui/icons-material";
 import { AdminApi } from "../../../service/api/admin/AdminApi";
 import toast from "react-hot-toast";
 
 const Users = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState();
 
   const columns = [
@@ -28,12 +29,9 @@ const Users = () => {
       label: "Actions",
       options: {
         customBodyRender: (tableMeta) => (
-    
           <Button variant="contained" sx={{ marginLeft: "auto" }}>
-             view
+            view
           </Button>
-        
-  
         ),
       },
     },
@@ -62,12 +60,21 @@ const Users = () => {
         title="Employee"
         downloadName="employee"
       />
+      <Button
+        sx={{
+          marginTop: 2,
+        }}
+        onClick={() => {
+          navigate("/admin-dashboard");
+        }}
+      >
+        Back
+      </Button>
     </>
   );
 };
 
 export default Users;
-
 
 // import React, { useEffect, useState } from "react";
 // import CustomTable from "../../../components/CustomTable";
@@ -137,7 +144,7 @@ export default Users;
 //       // Assuming 'id' is the unique identifier for your rows
 //       const rowId = selectedRow[/* index of id in your data */];
 //       await AdminApi.deleteEmployee(rowId);
-      
+
 //       // Update the state to reflect the changes
 //       setUserData((prevData) => {
 //         const newData = [...prevData];

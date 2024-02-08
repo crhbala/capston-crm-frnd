@@ -11,7 +11,7 @@ const Homepage = () => {
     <Box component="section">
       <Box>
         <Typography variant="h1" component="h1" sx={{ mb: 2 }} align="center">
-          CRISH BALA CRM for Your Basic CRM needs
+          CHRIS BALA CRM for Your Basic CRM needs
         </Typography>
        
         <Box align="center">

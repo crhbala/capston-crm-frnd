@@ -1,6 +1,6 @@
 // AddTicket.js
 import React, { useState } from 'react';
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { CustomTextField, CustomSelectField } from '../../../components/CustomInputs';
 import { useFormik } from 'formik';
@@ -68,8 +68,8 @@ const AddTicket = () => {
             <Box
               component="form"
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
+                display: "flex",
+                flexDirection: "column",
                 gap: 4,
               }}
             >
@@ -100,14 +100,13 @@ const AddTicket = () => {
                 touched={touched}
                 errors={errors}
                 labelItems={[
-                  { val: 'technical-support', label: 'Technical Support' },
-                  { val: 'feature-request', label: 'Feature Request' },
-                  { val: 'bug-report', label: 'Bug Report' },
-                  { val: 'general', label: 'General' },
-                  
+                  { val: "technical-support", label: "Technical Support" },
+                  { val: "feature-request", label: "Feature Request" },
+                  { val: "bug-report", label: "Bug Report" },
+                  { val: "general", label: "General" },
                 ]}
               />
-              
+
               <CustomSelectField
                 label="Status"
                 name="status"
@@ -117,9 +116,9 @@ const AddTicket = () => {
                 touched={touched}
                 errors={errors}
                 labelItems={[
-                  { val: 'open', label: 'Open' },
-                  { val: 'in-progress', label: 'In Progress' },
-                  { val: 'closed', label: 'Closed' },
+                  { val: "open", label: "Open" },
+                  { val: "in-progress", label: "In Progress" },
+                  { val: "closed", label: "Closed" },
                 ]}
               />
               <CustomSelectField
@@ -131,9 +130,9 @@ const AddTicket = () => {
                 touched={touched}
                 errors={errors}
                 labelItems={[
-                  { val: 'high', label: 'High' },
-                  { val: 'medium', label: 'Medium' },
-                  { val: 'low', label: 'Low' },
+                  { val: "high", label: "High" },
+                  { val: "medium", label: "Medium" },
+                  { val: "low", label: "Low" },
                 ]}
               />
             </Box>
@@ -148,6 +147,16 @@ const AddTicket = () => {
             >
               Create Ticket
             </LoadingButton>
+            <Button
+              sx={{
+                marginTop: 2,
+              }}
+              onClick={() => {
+                navigate("/user-dashboard");
+              }}
+            >
+              Back
+            </Button>
           </Grid>
         </Grid>
       </Container>

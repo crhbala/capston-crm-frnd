@@ -45,7 +45,7 @@ const AddUser = () => {
 
   const inviteUser = (values) => {
     // console.log(values);  apiUsers.post({ ...values}, "", true)
-    AdminApi.addUser({ ...values }, values.role, "register").then((res) => {
+    AdminApi.addUser({ ...values },"auth", "register").then((res) => {
       console.log(res, "responcw");
       if (res.status === 200) {
         toast.success("User has been invited");
@@ -98,19 +98,6 @@ const AddUser = () => {
                 handleChange={handleChange}
                 touched={touched}
                 errors={errors}
-              />
-              <CustomSelectField
-                label="Role"
-                name="role"
-                placeholder="role"
-                values={values}
-                handleChange={handleChange}
-                touched={touched}
-                errors={errors}
-                labelItems={[
-                  { val: "manager", label: "Manager" },
-                  { val: "employee", label: "Employee" },
-                ]}
               />
               <CustomTextField
                 label="password"
